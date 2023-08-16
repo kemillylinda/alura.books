@@ -4,6 +4,8 @@
   height: 24px;
   background-image: url(../img/Menu.svg);
   display: inline-block;
+  background-repeat: no-repeat ;
+  background-position: center;
 }
 
 .cabeçalho{
@@ -14,8 +16,12 @@ align-items: center;
 }     
 .container{
 display: flex;
+align-items: center;
 }
 
+
+
 .container_imagem{
-  padding: iem;
+  padding: 1em;
+
 }
