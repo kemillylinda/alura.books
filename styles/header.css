@@ -1,35 +1,33 @@
-.cabeçalho__menu-hanburguer{
- 
-  width: 24px;  
-  height: 24px;
-  background-image: url(../img/Menu.svg);
-  display: inline-block;
-  background-repeat: no-repeat ;
-  background-position: center;
+.cabeçalho_menu_hamburguer {
+
+    width: 24px;
+    height: 24px;
+    background-image: url(../img/Menu.svg);
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
 }
 
 .cabeçalho{
-background-color: var(--branco);
-display: flex;
-justify-content: space-between;
-align-items: center;
-}     
-.container{
-display: flex;
-align-items: center;
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
 }
-
-
-
-.container_imagem{
-  padding: 1em;
-
+.cabeçalho{
+    display: flex;
+    align-items: center;
 }
- 
+.container__imagem{
+    padding: 1em;
+}
 .lista-menu{
-  display: none;
+    display: none;
+    position: absolute;
+    top:100%;
 }
-
-.container__botão:checked~ .lista-menu{
-  display: block;
+.container_botao:checked~.lista-menu{
+    display: block;
 }
