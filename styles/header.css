@@ -42,7 +42,9 @@
 
 .lista-menu__titulo {
     color: var(--laranja);
+    font-weight: 700;
 }
+
 .lista-menu__link{
     background: var(--azul-degrade);
     -webkit-background-clip: text;
@@ -51,3 +53,7 @@
     text-transform: uppercase;
     width: 60vw;
     }
+
+.container_botao{
+        display:none;
+}
