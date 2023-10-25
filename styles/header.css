@@ -1,59 +1,69 @@
-.cabeçalho_menu-hamburguer {
+.cabeçalho_menu-hamburguer{
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/Menu.svg);
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: inline-block;
 
-    width: 24px;
-    height: 24px;
-    background-image: url(../Img/Menu.svg);
-    display: inline-block;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: inline-block;
 }
 
 .cabeçalho{
-    background-color: var(--branco);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
+
+ background-color: var(--branco);
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ position: relative;
+
 }
+
 .container{
-    display: flex;
-    align-items: center;
+  
+ display: flex;
+ align-items: center;
+
 }
 
 .container__imagem{
-    padding: 1em;
+  padding: 1em; 
+
 }
+
 .lista-menu{
-    display: none;
-    position: absolute;
-    top:100%;
-    width: 60vw;
-}
-.container_botao:checked~.lista-menu{
-    display: block;
+ display: none;
+ position: absolute;
+ top: 100%;
+ width: 60vw;
+
 }
 
-.lista-menu__titulo,.lista-menu__item{
-    padding: 1em;
-    background-color: var(--branco);
+.container__botão:checked~.lista-menu{
+ display: block;
+  
 }
 
+.lista-menu__titulos,.lista-menu__item{
+  padding: 1em;
+  background-color: var(--branco);
 
-.lista-menu__titulo {
-    color: var(--laranja);
-    font-weight: 700;
 }
 
 .lista-menu__link{
-    background: var(--azul-degrade);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-transform: uppercase;
-    width: 60vw;
-    }
+  background: var(--azul-degrade);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;  
+  text-transform: uppercase;
 
-.container_botao{
-        display:none;
-}
+  }
+
+
+.lista-menu__titulos{
+  color: var(--laranja);
+  font-weight: 700;
+
+}  
+
+.container__botão{ display: none; } 
