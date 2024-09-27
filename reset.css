@@ -1,63 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+import { getCSS, tickConfig } from "./common.js"
 
-:root {
-    --cor-fundo: #01080E;
-    --cor-principal: #0B0D20 ;
-    --cor-secundaria: #212333;
-    --cor-destaque: #2BDEFD;
-    --cor-texto: #D7F9FF;
-}
-  
-body {
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+async function quantidadeUsuariosPorRede() {
+    const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/numero-usuarios.json'
+    const res = await fetch(url)
+    const dados = await res.json()
+    const nomeDasRedes = Object.keys(dados)
+    const quantidadeDeUsuarios = Object.values(dados)
+
+    const data = [
+        {
+            x: nomeDasRedes, 
+            y: quantidadeDeUsuarios, 
+            type: 'bar',
+            marker: {
+                color: getCSS('--primary-color')
+            }
+        }
+    ]
+
+    const laytout = {
+        plot_bgcolor: getCSS('--bg-color'),
+        paper_bgcolor: getCSS('--bg-color'),
+        title: {
+            text: 'Redes sociais com mais usuários',
+            x: 0,
+            font: {
+                color: getCSS('--primary-color'),
+                size: 30,
+                font: getCSS('--font')
+            }
+        },
+        xaxis: {
+            tickfont: tickConfig,
+            title: {
+                text: 'Nome das redes',
+                font: {
+                    color: getCSS('--secondary-color')
+                }
+            }
+        },
+        yaxis: {
+            tickfont: tickConfig,
+            title: {
+                text: 'Bilhões de usuários ativos',
+                font: {
+                    color: getCSS('--secondary-color')
+                }
+            }
+        }
+    }
+
+    const grafico = document.createElement('div')
+    grafico.className = 'grafico'
+    document.getElementById('graficos-container').appendChild(grafico)
+    Plotly.newPlot(grafico, data, laytout)
 }
 
-.caixa-principal{
-    background-color: var(--cor-principal);
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    padding: 20px;
-}
-
-h1, .caixa-perguntas, .caixa-resultado{
-    font-family: 'Chakra Petch', sans-serif;
-}
-
-h1 {
-    color: var(--cor-destaque);
-}
-
-button {
-    background-color: var(--cor-secundaria);
-    color: var(--cor-texto);
-    border: none;
-    border-radius: 15px;
-    padding: 15px;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: var(--cor-destaque);
-    color: var(--cor-principal);
-}
-
-.caixa-resultado{
-    display: none;
-}
-
-.caixa-resultado.mostrar{
-    display: block;
-}
-
-.caixa-alternativas{
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+quantidadeUsuariosPorRede()
